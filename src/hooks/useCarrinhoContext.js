@@ -20,7 +20,7 @@ export const useCarrinhoContext = () => {
     });
 
     if(temOProduto === false) {
-      novoProduto.quantidade = 5;
+      novoProduto.quantidade = 1;
       return setCarrinho((carrinhoAnterior) => [
         ...carrinhoAnterior,
         novoProduto
@@ -48,10 +48,17 @@ export const useCarrinhoContext = () => {
     setCarrinho([...carrinhoAtualizado]);
   }
 
+  function removerProdutoCarrinho (id) {
+    const produtos = carrinho.filter((itemDoCarrinho) => { return itemDoCarrinho.id !== id });
+
+    setCarrinho(produtos);
+  }
+
   return {
     carrinho,
     setCarrinho,
     adicionarProduto,
-    removerProduto
+    removerProduto,
+    removerProdutoCarrinho
   }
 }
