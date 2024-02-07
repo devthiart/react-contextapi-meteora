@@ -6,7 +6,7 @@ export const carrinhoReducer = (state, action) => {
   switch(action.type) {
     case ADD_PRODUTO: 
       const novoProduto = action.payload
-      const produto = state.findIndex((item) => item.id === novoProduto); // get id item
+      const produto = state.findIndex((item) => item.id === novoProduto.id); // get id item
       if (produto === -1) { // state.findIndex returns -1 if the item does not exist
         // Creating new item in state
         novoProduto.quantidade = 1;
